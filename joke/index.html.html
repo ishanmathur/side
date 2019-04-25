@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>A Joke</title>
+        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+        <link rel="icon" href="favicon.ico" type="image/x-icon">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+        <style> 
+            body {
+                background: #70e1f5;  /* fallback for old browsers */
+                background: -webkit-linear-gradient(to right, #ffd194, #70e1f5);  /* Chrome 10-25, Safari 5.1-6 */
+                background: linear-gradient(to right, #ffd194, #70e1f5); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+            }
+            .container, #header, #me {
+                background-color: #FFFFFF;
+                margin: 15px;
+                padding: 15px;
+                border-radius: 20px;
+                box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+                max-width: 400px;
+                text-align: center;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            #word {
+                margin: 10px;
+                padding: 10px;
+            }
+            #myBtn {
+                margin: 5px;
+                padding: 5px;
+                font-size: 15px;
+            }
+            #ans {
+                margin: 8px;
+                padding: 8px;
+                font-size: 30px;
+                font-weight: bold;
+                border: 1px solid #0000ff;
+                border-radius: 20px;
+                display: none;
+            }
+            #me a { margin: 5px; padding: 5px; }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <h2>It's a simple program to calculate the numerical value of the word you entered.</h2>
+            <input type="text" id="word" placeholder="Word"><br>
+            <button id="myBtn">Check</button>
+            <div id="ans"></div>
+        </div>
+        <div id="header" align="center">
+            <h3 id="rotate"></h3>
+            <h4>Check it out in <i class="fab fa-python"></i> <b>Python</b> on my <a target="_BLANK" href="https://github.com/ishanmathur">Github</a></h4>
+        </div>
+        <div id="me">
+            <h3> Share with your Friends:</h3>
+            <h1> 
+                <a href="http://whatsapp://send?text=Hey, check out a cool way to calculate sum of words here https://github.com/" target="_BLANK"><i class="fab fa-whatsapp"></i></a>
+                <a href="https://www.facebook.com/sharer/sharer.php?u=Hey, check out a cool way to calculate sum of words here https://github.com/" target="_BLANK"><i class="fab fa-facebook"></i></a>
+                <a href="https://twitter.com/intent/tweet?text=Hey,%20check%20out%20a%20cool%20way%20to%20calculate%20sum%20of%20words%20here%20https://github.com/" target="_BLANK"><i class="fab fa-twitter"></i></a>
+            </h1>
+        </div>
+        <script>
+            var words = ["Attitude", "Ishan", "Sex", "A Joke", "You", "Love"];
+            var answers = ["100", "51", "48", "42", "61", "54"];
+            var colour = ["blue", "green", "red"];
+            var i = 0, j = 0;
+            setInterval(function() {
+                document.getElementById("rotate").style.color = colour[j];
+                j++;
+                if(j === 3) { j = 0; }
+                document.getElementById("rotate").innerHTML = words[i] + "<br>" + "&darr;" + "<br>" + answers[i];
+                i++;
+                if(i === 6) { i = 0; }
+            }, 2000);
+        </script>
+        <script>
+            document.getElementById("myBtn").addEventListener("click", myFunction);
+            function myFunction(){
+                var a = document.getElementById("word").value;
+                var ans = 0, res = 0
+                a = a.replace(/\W/g, "");
+                a = a.toLowerCase();
+                var print = '';
+                for(var i = 0; i < a.length; i++) {
+                    ans = a.charCodeAt(i) - 96;
+                    res += ans;
+                }
+                document.getElementById("ans").style.display = 'block';
+                document.getElementById("ans").innerHTML = a + ": " + res;
+            }
+        </script>
+    </body>
+</html>
