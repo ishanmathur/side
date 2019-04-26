@@ -14,7 +14,7 @@
                 background: linear-gradient(to right, #ffd194, #70e1f5); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
             }
-            .container, #header, #me {
+            .container, #header {
                 background-color: #FFFFFF;
                 margin: 15px;
                 padding: 15px;
@@ -37,33 +37,25 @@
             #ans {
                 margin: 8px;
                 padding: 8px;
-                font-size: 30px;
+                font-size: 25px;
                 font-weight: bold;
                 border: 1px solid #0000ff;
                 border-radius: 20px;
                 display: none;
             }
-            #me a { margin: 5px; padding: 5px; }
         </style>
     </head>
     <body>
         <div class="container">
             <h2>It's a simple program to calculate the numerical value of the word you entered.</h2>
             <input type="text" id="word" placeholder="Word"><br>
-            <button id="myBtn">Check</button>
+            <button onclick="myFunction()" id="myBtn">Check</button>
             <div id="ans"></div>
         </div>
-        <div id="header" align="center">
+        <div id="header">
             <h3 id="rotate"></h3>
             <h4>Check it out in <i class="fab fa-python"></i> <b>Python</b> on my <a target="_BLANK" href="https://github.com/ishanmathur">Github</a></h4>
-        </div>
-        <div id="me">
-            <h3> Share with your Friends:</h3>
-            <h1> 
-                <a href="http://whatsapp://send?text=Hey, check out a cool way to calculate sum of words here https://github.com/" target="_BLANK"><i class="fab fa-whatsapp"></i></a>
-                <a href="https://www.facebook.com/sharer/sharer.php?u=Hey, check out a cool way to calculate sum of words here https://github.com/" target="_BLANK"><i class="fab fa-facebook"></i></a>
-                <a href="https://twitter.com/intent/tweet?text=Hey,%20check%20out%20a%20cool%20way%20to%20calculate%20sum%20of%20words%20here%20https://github.com/" target="_BLANK"><i class="fab fa-twitter"></i></a>
-            </h1>
+            <h4>More projects at <a href="https://ishanmathur.github.io"><i class="fas fa-globe-asia"></i> My Website</a></h4>
         </div>
         <script>
             var words = ["Attitude", "Ishan", "Sex", "A Joke", "You", "Love"];
@@ -80,19 +72,22 @@
             }, 2000);
         </script>
         <script>
-            document.getElementById("myBtn").addEventListener("click", myFunction);
             function myFunction(){
                 var a = document.getElementById("word").value;
                 var ans = 0, res = 0
                 a = a.replace(/\W/g, "");
                 a = a.toLowerCase();
                 var print = '';
+                var printyr = '';
                 for(var i = 0; i < a.length; i++) {
+                    if (i < a.length - 1) { printyr += a[i] + " + "; }
+                    else { printyr += a[i] + " "; }
                     ans = a.charCodeAt(i) - 96;
                     res += ans;
                 }
+                printyr += ": " + res;
                 document.getElementById("ans").style.display = 'block';
-                document.getElementById("ans").innerHTML = a + ": " + res;
+                document.getElementById("ans").innerHTML = printyr;
             }
         </script>
     </body>
