@@ -1,8 +1,8 @@
 <?php
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "ekdb";
-    $conn = new mysqli($servername, $username, $password, $dbname);
+    $servernamedb = "localhost";
+    $usernamedb = "root";
+    $passworddb = "";
+    $dbnamedb = "ekdb";
+    $conn = new mysqli($servernamedb, $usernamedb, $passworddb, $dbnamedb);
     if ($conn->connect_error) { die("Connection failed: " . $conn->connect_error); }
 ?>
