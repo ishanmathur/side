@@ -19,7 +19,7 @@ $row = mysqli_fetch_array($result);
         <br><div id="ekishara"></div>
     </div>
 
-    <div class="container" style="background: #e6e6e6; position: relative;">
+    <div class="container" style="background: #ffffff; position: relative;">
         <br>
         <div id="about" data-aos="zoom-in" data-aos-mirror="true">
             <img class="hlogo" src="../img/nav/about.png">&nbsp;&nbsp;<span class="cardTitle">About</span><br><br>
@@ -30,7 +30,7 @@ $row = mysqli_fetch_array($result);
             </h5>
             <a class="btn" data-toggle="collapse" href="#collapseAbout" role="button" aria-expanded="false" aria-controls="collapseExample"><i class="material-icons">keyboard_arrow_down</i></a>
             <div class="collapse" id="collapseAbout">
-                <h5 class="card card-body" style="background: #00c6ff;">
+                <h5 class="card-body" style="background: #78bcce;">
                     It is a venture to free the current generation from
                     the "ancestral peer pressure" that suppressed the artists all through this while for a very long while.
                     We tend to create not just an awareness but a revolution. The beauty our town needs the art within
@@ -127,7 +127,7 @@ $row = mysqli_fetch_array($result);
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                    <div class="modal-body alert-warning" id="dayOneBody">
+                    <div class="modal-body alert-danger" id="dayOneBody">
 
                     </div>
                 </div>
