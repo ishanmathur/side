@@ -1,0 +1,59 @@
+#ekishara {
+    width: 100%;
+    height: 70vh;
+    background: url('../img/bg/bgishara.PNG');
+    background-repeat: no-repeat;
+    background-position: center;
+}
+#aboutpic { border-radius: 5px; }
+@media only screen and (min-width: 820px) {
+    #aboutpic, #missionpic {
+        width: 99%;
+    }
+}
+@media only screen and (max-width: 819px) {
+    #aboutpic, #missionpic {
+        width: 85vw;
+    }
+}
+i { vertical-align: middle; }
+#about, #mission, #works, #event, #contact { background: #e6e6e6; padding: 20px; border-radius: 7px; box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2); }
+.cardTitle { font-size: 38px; font-weight: bold; }
+#about {
+    background: #78bcce;
+    color: #4249a9;
+}
+#mission {
+    background: #c9a5c8;
+    color: #464557;
+}
+#works {
+    background: #e3d6d3;
+    color: #7aa6b6;
+}    
+#event {
+    background: #e3a499;
+    color: #4c13c6;
+}
+#contact {
+    background: #e6b2bb;
+    color: #425e88;
+}
+.hlogo { width: 50px; }
+#works .card { padding: 10px; margin: 10px; }
+#d1btn, #d2btn {
+    margin: 5px;
+    padding: 5px;
+    border-radius: 10px;
+    height: 100px;
+}
+@media only screen and (min-width: 499px) {
+    #d1btn, #d2btn {
+        width: 40%;
+    }
+}
+@media only screen and (max-width: 498px) {
+    #d1btn, #d2btn {
+        width: 75vw;
+    }
+}
