@@ -10,7 +10,7 @@ i { vertical-align: middle; }
     #info { min-width: 99%; } 
 }
 #info #profilepic {
-    border: 2px solid #3399ff;
+    border: 2px solid;
     border-radius: 50%;
     width: 85px;
     height: 85px;

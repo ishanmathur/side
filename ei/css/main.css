@@ -3,6 +3,7 @@
     background: url('../img/bg/bgishara.PNG');
     background-repeat: no-repeat;
     background-position: center;
+    background-color: #FFFFFF;
 }
 @media only screen and (min-width: 820px) {
     #ekishara {
@@ -30,30 +31,35 @@
     }
 }
 i { vertical-align: middle; }
-#about, #mission, #works, #event, #contact { padding: 20px; border-radius: 7px; box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2); }
+#about, #mission, #works, #event, #contact { color: #FFFFFF; padding: 20px; border-radius: 7px; box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2); }
 #about {
-    background: #78bcce;
-    color: #4249a9;
+    background: url('../img/bg/about.jpeg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 #mission {
-    background: #c9a5c8;
-    color: #464557;
+    background-image: url('../img/bg/mission.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 #works {
-    background: #e3d6d3;
-    color: #7aa6b6;
+    background: url('../img/bg/works.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }    
 #event {
-    background: #e3a499;
-    color: #4c13c6;
+    background: url('../img/bg/event.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
-#contact {
-    background: #e6b2bb;
-    color: #425e88;
-}
+#contact { color: #000000; background-color: #415b7b; }
 
-.cardTitle { font-family: 'Lato', sans-serif; -webkit-text-stroke: 2px #000000; -webkit-text-fill-color: transparent; color: transparent; display: inline-block; font-size: 38px; font-weight: bold; }
-.hlogo { width: 50px; }
+.cardTitle { font-family: 'Lato', sans-serif; color: #FFFFFF; font-size: 38px; font-weight: bold; }
+.hlogo { width: 50px; filter:invert(100%); }
 #works .card { padding: 10px; margin: 10px; }
 #d1btn, #d2btn {
     margin: 5px;

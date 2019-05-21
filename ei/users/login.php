@@ -141,7 +141,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 </form>
             </div>
             <div class="col">
-                <img src='../img/sign-in.png' width="90%">
+                <img src='../img/bg/sign-in.png' width="90%">
             </div>
         </div> 
     </div>   

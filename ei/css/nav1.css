@@ -1,0 +1,70 @@
+#registerBtn {
+    position: fixed;
+    right: 12px;
+    margin: 5px;
+    padding: 7px;
+    z-index: 3;
+}
+
+#navOpt {
+    position: fixed;
+    background: #e6e6e6;
+    padding-left: 15px;
+    z-index: 2;
+}
+
+@media only screen and (min-width: 750px) {
+    #registerBtn {
+        top: -5px;
+    }
+    #navOpt {
+        width: 100vw;
+        border-bottom: 1px solid;
+        height: 55px;
+    } 
+}
+@media only screen and (max-width: 749px) {
+    #menuWritten { display: none; }
+    #registerBtn {
+        top: 2px;
+    }
+    #navOpt {
+        width: 95vw;
+        margin: 10px;
+        border: 1px solid #a6a6a6;
+        border-radius: 10px;
+        height: 48px;
+    }   
+}
+
+#sideNav {
+    height: 100%;
+    width: 0%;
+    position: fixed;
+    z-index: 4;
+    top: 0;
+    left: 0;
+    overflow-x: hidden;
+    transition: 0.3s;
+    background: gray;
+}
+
+#navCon { max-width: 500px; position: absolute; left: 47%; top: 40%; transform: translate(-50%, -50%); }
+
+.navWord {
+    color: #000000;
+    font-size: 1.5rem;
+}
+
+.navimg {
+    height: 45px;
+    width: auto;
+}
+
+#closebtn {
+    right: 15px;
+    position: absolute;
+    font-size: 70px;
+    color: #FFFFFF;
+    border-radius: 50px;
+}

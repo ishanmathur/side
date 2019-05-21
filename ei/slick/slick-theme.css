@@ -27,28 +27,26 @@
 
     display: block;
 
-    width: 20px;
-    height: 20px;
+    width: 35px;
+    height: 35px;
     padding: 0;
     -webkit-transform: translate(0, -50%);
     -ms-transform: translate(0, -50%);
     transform: translate(0, -50%);
 
     cursor: pointer;
-
-    color: transparent;
-    border: none;
+    border-radius: 20px;
+    border: 1px solid;
     outline: none;
-    background: transparent;
+    background: #0072ff;
 }
 .slick-prev:hover,
 .slick-prev:focus,
 .slick-next:hover,
 .slick-next:focus
 {
-    color: transparent;
     outline: none;
-    background: transparent;
+    background: #0072ff;
 }
 .slick-prev:hover:before,
 .slick-prev:focus:before,

@@ -12,53 +12,6 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 <?php require_once('../header.php'); $u = htmlspecialchars($_SESSION["username"]); $what="";  ?>
 
 <?php
-    if(isset($_POST['postbtn'])){
-
-        if(file_exists($_FILES['postfile']['tmp_name']) || is_uploaded_file($_FILES['postfile']['tmp_name'])) {
-
-            $target_dir = "../img/posts/";
-            $target_file = $target_dir . basename($_FILES["postfile"]["name"]);
-            $uploadOk = 1;
-            $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
-            // Check if image file is a actual image or fake image
-            if(isset($_POST['postbtn'])) {
-                $check = getimagesize($_FILES["postfile"]["tmp_name"]);
-                if($check !== false) {
-                    $uploadOk = 1;
-                } else {
-                    $what = "File is not an image.";
-                    $uploadOk = 0;
-                }
-            }
-            // Check file size
-            if ($_FILES["postfile"]["size"] > 500000) {
-                $what = "Sorry, your file is too large.";
-                $uploadOk = 0;
-            }
-            // Allow certain file formats
-            if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
-            && $imageFileType != "gif" ) {
-                $what = "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
-                $uploadOk = 0;
-            }
-            // Check if $uploadOk is set to 0 by an error
-            if ($uploadOk == 0) {
-                $what = "Sorry, your file was not uploaded.";
-            // if everything is ok, try to upload file
-            } else {
-                $newfilename = $target_dir.$u."_".md5($target_file).'.'.$imageFileType;
-                if (move_uploaded_file($_FILES["postfile"]["tmp_name"], $newfilename)) {
-                    $sqlpic = "INSERT INTO posts (username, postloc)
-                               VALUES ('$u', '$newfilename')";
-                    if ($conn->query($sqlpic) === TRUE) { $what = 'Post Added Successfully!!!'; }
-                    else { $what = "Error: " . $sqlpic . "<br>" . $conn->error; }
-                } else {
-                    $what = "Sorry, there was an error uploading your file.";
-                }
-            }
-        }
-    }
-
     if(isset($_POST['deletebtn'])){
         $todelete = $_POST["deleteval"];
         $deletequery = "DELETE FROM posts WHERE postloc='".$todelete."'";
@@ -86,56 +39,25 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     <div class="container">
         <div class="row">
             <div class="col" id="info"><br>
-                <div style="background: url('../img/user-min.png'); background-size: cover; background-position: center;" id="profilepic"></div>
+                <div style="background: url('<?php if($row["pimgloc"] != '') { echo $row["pimgloc"]; } else { echo "../img/nav/user.png"; } ?>'); background-size: contain; background-repeat: no-repeat; background-position: center;" id="profilepic"></div>
                 <h3>@<b><?php echo $u; ?></b></h3>
-                <h3 style="color: black;"><b><?php echo $row["fullname"]; ?> </b></h3><br>
+                <?php
+                    if($row["bio"] != "") {
+                        echo '&nbsp; &nbsp; <b> Bio</b> :
+                              <h5>'.$row["bio"].'</h5>'; 
+                    }
+                ?><br>
+                <h3 style="color: black;"><b><?php echo $row["fullname"]; ?> </b></h3>
                 
-                <button id="contribute" class="btn btn-primary" data-toggle="modal" data-target="#contributeModal"><i class="material-icons">note_add</i><b>&nbsp; Commit</b></button>
+                <a href="../works/contribute.php" id="contribute" class="btn btn-primary"><i class="material-icons">note_add</i><b>&nbsp; Commit</b></a>
 
                 <?php if($what != "") { echo '<br><div style="margin: 5px; padding: 5px; max-width: 95%;" class="btn btn-outline-danger">' . $what . '</div>'; } ?>
 
-                <div style="z-index: 9999;" class="modal fade" id="contributeModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Share your works!</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                                <form action="" method="post" enctype="multipart/form-data">
-                                    <img id="blah" src="" width="250px" height="auto"/><br><br>
-                                    <input type="file" name="postfile" id="fileToUpload">
-                            </div>
-                            <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                                    <button type="submit" name="postbtn" class="btn btn-primary">Post</button>
-                                </form>
-                            </div>
-                            <script>
-                                function readURL(input) {
-                                    if (input.files && input.files[0]) {
-                                        var reader = new FileReader();
-
-                                        reader.onload = function (e) {
-                                            $('#blah').attr('src', e.target.result);
-                                        }
-
-                                        reader.readAsDataURL(input.files[0]);
-                                    }
-                                }
-
-                                $("#fileToUpload").change(function(){
-                                    readURL(this);
-                                });
-                            </script>
-                        </div>
-                    </div>
-                </div>
-
-                <?php
-                    if($row["phone"] != "") { echo '<div class="details"><img src="../img/phone.png" width="35" height="auto"> &nbsp; '.$row["phone"].'</div>'; }
+                <br><?php
+                    if($row["city"] != "") { echo '<div class="details"><img src="../img/profiledetails/city.png" width="35" height="auto"> &nbsp; '.$row["city"].'</div>'; }
+                    if($row["phone"] != "") { echo '<div class="details"><img src="../img/profiledetails/phone.png" width="35" height="auto"> &nbsp; '.$row["phone"].'</div>'; }
+                    if($row["bday"] != "") { echo '<div class="details"><img src="../img/profiledetails/bday.png" width="35" height="auto"> &nbsp; '.$row["bday"].'</div>'; }
+                    if($row["created_at"] != "") { echo '<div class="details"><img src="../img/profiledetails/joined.png" width="35" height="auto"> &nbsp; '.$row["created_at"].'</div>'; }
                 ?>
                 
             </div>
@@ -175,7 +97,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
                         }
                     
                 } else {
-                    echo "Start posting your art by clicking COMMIT!!!";
+                    echo "Start posting blogs on your profile by clicking COMMIT!!!";
                 }
             ?>
         </div>

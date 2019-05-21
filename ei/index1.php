@@ -7,22 +7,26 @@ $row = mysqli_fetch_array($result);
 
 <link rel="stylesheet" type="text/css" href="slick/slick.css" />
 <link rel="stylesheet" type="text/css" href="slick/slick-theme.css" />
-<link rel="stylesheet" type="text/css" href="css/main.css" />
-<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<link rel="stylesheet" type="text/css" href="css/main2.css" />
+<script src="https://cdn.jsdelivr.net/npm/lax.js" >
 </head>
 
 <body>
 
     <?php require_once('navbar.php'); ?>
 
-    <div style="position: relative" class="container-fluid">
-        <br><div id="ekishara"></div>
+    <div style="position: relative">
+        <div id="ekishara"></div>
     </div>
 
-    <div class="container" style="background: #ffffff; position: relative;">
-        <br>
-        <div id="about" data-aos="zoom-in" data-aos-mirror="true">
-            <img class="hlogo" src="../img/nav/about.png">&nbsp;&nbsp;<span class="cardTitle">About</span><br><br>
+    <a id="registerBtn" target="_BLANK" class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLSeKOyfSXI8GwnT2qpptqLUJnhrEjzXfqTa7O5EQEIV1uezh-g/viewform">
+        <img src="../img/nav/register.png" width="30px"> <b id="regWritten">REGISTER</b>
+    </a>
+
+    <div class="container" style="background: #e6e6e6; position: relative;">
+        
+        <div id="about" class="lax" data-lax-preset="zoomInOut fadeInOut">
+            <img class="hlogo" src="../img/nav/about.png">&nbsp;&nbsp;<span>About</span><br><br>
             <h5>
                 Ishara is a revolutionary venture to promote any form of art and speech in Ajmer and anywhere
                 around. We thrive to bring an event dedicated truly to art, an environment where everyone can
@@ -30,17 +34,17 @@ $row = mysqli_fetch_array($result);
             </h5>
             <a class="btn" data-toggle="collapse" href="#collapseAbout" role="button" aria-expanded="false" aria-controls="collapseExample"><i class="material-icons">keyboard_arrow_down</i></a>
             <div class="collapse" id="collapseAbout">
-                <h5 class="card-body" style="background: #538dc0;">
+                <h5 class="card card-body" style="background: #00c6ff;">
                     It is a venture to free the current generation from
                     the "ancestral peer pressure" that suppressed the artists all through this while for a very long while.
                     We tend to create not just an awareness but a revolution. The beauty our town needs the art within
                     to thrive and prosper.
                 </h5>
             </div>
-        </div><br>
+        </div>
 
-        <div id="mission" data-aos="zoom-in" data-aos-mirror="true">
-            <img class="hlogo" src="../img/nav/mission.png">&nbsp;&nbsp;<span class="cardTitle">Mission</span><br><br>
+        <div id="mission" class="lax" data-lax-preset="zoomInOut fadeInOut">
+            <img class="hlogo" src="../img/nav/mission.png">&nbsp;&nbsp;<span>Mission</span><br><br>
             <h5>
                 We at Ishara aim towards an awareness and bringing about a revolutionary change in the mindsets
                 of our society and to create a community which will work towards the betterment of various art
@@ -49,10 +53,10 @@ $row = mysqli_fetch_array($result);
                 preserve it for the future generations. An addtion to that we are gravitated in organising campaigns
                 regarding climate changes and its resolutions.
             </h5>
-        </div><br>
+        </div>
 
-        <div id="works" data-aos="zoom-in" data-aos-mirror="true">
-            <img class="hlogo" src="../img/nav/works.png">&nbsp;&nbsp;<span class="cardTitle">Blogs</span><br><br>
+        <div id="works" class="lax" data-lax-preset="zoomInOut fadeInOut">
+            <img class="hlogo" src="../img/nav/works.png">&nbsp;&nbsp;<span>Blogs</span><br><br>
 
             <?php
             echo '<div class="slidethrough">';
@@ -89,10 +93,10 @@ $row = mysqli_fetch_array($result);
                 });
             </script>
 
-        </div><br>
+        </div>
 
-        <div id="event" data-aos="zoom-in" data-aos-mirror="true">
-            <img class="hlogo" src="../img/nav/event.png">&nbsp;&nbsp;<span class="cardTitle">Event</span><br><br>
+        <div id="event" class="lax" data-lax-preset="zoomInOut fadeInOut">
+            <img class="hlogo" src="../img/nav/event.png">&nbsp;&nbsp;<span>Event</span><br><br>
 
             <div class="row" style="margin: 5px; padding: 5px;">
                 <div class="col" style="max-width: 70px;"> <img src="../img/event/calendar.png" width="45px" height="auto"> </div>
@@ -116,7 +120,7 @@ $row = mysqli_fetch_array($result);
                 </button>
             </div>
 
-        </div><br>
+        </div>
 
         <div class="modal fade bd-example-modal-lg bd-example-modal-lg" id="dayOne" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle1" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
@@ -127,7 +131,7 @@ $row = mysqli_fetch_array($result);
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                    <div class="modal-body alert-danger" id="dayOneBody">
+                    <div class="modal-body alert-warning" id="dayOneBody">
 
                     </div>
                 </div>
@@ -163,10 +167,10 @@ $row = mysqli_fetch_array($result);
             });
         </script>
 
-        <div id="contact" data-aos="zoom-in" data-aos-mirror="true">
-            <img class="hlogo" src="../img/nav/team.png">&nbsp;&nbsp;<span class="cardTitle">Team</span><br><br>
+        <div id="contact" class="lax" data-lax-preset="zoomInOut fadeInOut">
+            <img class="hlogo" src="../img/nav/team.png">&nbsp;&nbsp;<span>Team</span><br><br>
             <div id="showteam"></div>
-
+            
             <script src="js/team.js"></script>
 
             <script type="text/javascript">
@@ -191,9 +195,17 @@ $row = mysqli_fetch_array($result);
 
     <script type="text/javascript" src="slick/slick.min.js"></script>
 
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
-        AOS.init();
+    window.onload = function() {
+        lax.setup() // init
+
+        const updateLax = () => {
+            lax.update(window.scrollY)
+            window.requestAnimationFrame(updateLax)
+        }
+
+        window.requestAnimationFrame(updateLax)
+    }
     </script>
 
     <?php require_once('footer.php'); ?>

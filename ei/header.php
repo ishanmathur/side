@@ -19,6 +19,5 @@
         <link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon">
         <link rel="icon" href="../img/favicon.ico" type="image/x-icon">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <style> body { background: #E6E6E6; } </style>
-    </head>
-    <body>
+        <link href="https://fonts.googleapis.com/css?family=Lato:900|Raleway:500&display=swap" rel="stylesheet">
+        <style> body { background: #FFFFFF; font-family: 'Raleway', sans-serif; } </style>
