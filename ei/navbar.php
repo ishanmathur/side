@@ -17,7 +17,7 @@ else {
 ?>
 <link rel="stylesheet" href="../css/nav.css">
 <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" style="border: none;" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <i class="material-icons">menu</i>
     </button>
     <a href="#ekishara">
@@ -30,34 +30,34 @@ else {
             &nbsp; &nbsp;
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <img class="navimg" src="../img/nav/home.png"> <span> Home </span>
+                    <span> Home </span>
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown1">
-                    <a class="dropdown-item" href="<?php echo $forabout ?>"><img class="navimg" src="../img/nav/about.png"> <span> About </span></a>
+                    <a class="dropdown-item" href="<?php echo $forabout ?>"><span> About </span></a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="<?php echo $formission ?>"><img class="navimg" src="../img/nav/mission.png"> <span> Mission </span></a>
+                    <a class="dropdown-item" href="<?php echo $formission ?>"><span> Mission </span></a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="<?php echo $forteam ?>"><img class="navimg" src="../img/nav/team.png"> <span> Team </span></a>
+                    <a class="dropdown-item" href="<?php echo $forteam ?>"><span> Team </span></a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="<?php echo $forcontact ?>"><img class="navimg" src="../img/nav/contact.png"> <span> Contact </span></a>
+                    <a class="dropdown-item" href="<?php echo $forcontact ?>"><span> Contact </span></a>
                 </div>
             </li> &nbsp;
             <li class="nav-item">
-                <a class="nav-link" href="../works/blogs.php"><img class="navimg" src="../img/nav/works.png"> <span> Blogs </span></a>
+                <a class="nav-link" href="../works/blogs.php"><span> Blogs </span></a>
             </li> &nbsp;
             <li class="nav-item">
-                <a class="nav-link" href="<?php echo $forevent ?>"><img class="navimg" src="../img/nav/event.png"> <span> Event </span></a>
+                <a class="nav-link" href="<?php echo $forevent ?>"><span> Event </span></a>
             </li> &nbsp;
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <img class="navimg" src="../img/nav/user.png"> <span> User </span>
+                    <span> User </span>
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown2">
-                    <a class="dropdown-item" href="../users/login.php"> <img class="navimg" src="../img/user-min.png"> <span> Profile </span></a>
+                    <a class="dropdown-item" href="../users/login.php"> <span> Profile </span></a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" target="_BLANK" href="https://docs.google.com/forms/d/e/1FAIpQLSeKOyfSXI8GwnT2qpptqLUJnhrEjzXfqTa7O5EQEIV1uezh-g/viewform"><img class="navimg" src="../img/nav/register.png"> <span> Register <span style="display: block; font-size: 10px; color: red;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; For June Event</span> </span></a>
+                    <a class="dropdown-item" target="_BLANK" href="https://docs.google.com/forms/d/e/1FAIpQLSeKOyfSXI8GwnT2qpptqLUJnhrEjzXfqTa7O5EQEIV1uezh-g/viewform"><span> Register <span style="display: block; font-size: 10px; color: red;"> For June Event</span> </span></a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="../why.php"><img class="navimg" src="../img/nav/why.png"> <span> Why us? </span></a>
+                    <a class="dropdown-item" href="../why.php"><span> Why us? </span></a>
                 </div>
             </li> &nbsp; &nbsp;
         </ul>
