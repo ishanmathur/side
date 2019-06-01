@@ -66,3 +66,7 @@ i { vertical-align: middle; }
         box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.4);
     }
 }
+@media only screen and (min-width: 768px) { #blogwid { max-width: 275px; } }
+#blogwid:hover {
+    transform: scale(0.9);
+}

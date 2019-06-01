@@ -1,65 +1,145 @@
+#loader {
+	position: fixed;
+	left: 50%;
+    top: 35%;
+    transform: translate(-50%, -50%);
+	width: 100%;
+	height: 100%;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: calc(7vmin * 4);
+}
+/* #ektop {
+    margin: 5px;
+    background: url('../img/bg/artboard.svg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: -1;
+    width: 98vw;
+    background-color: #FFFFFF;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    border-radius: 10px;
+}
+@media only screen and (min-width: 700px) { #ektop { height: 40vw } }
+@media only screen and (max-width: 699px) { #ektop { height: 50vw; } }
+@media only screen and (max-width: 549px) { #ektop { height: 60vw; } }
+@media only screen and (max-width: 449px) { #ektop { height: 70vw; } }
+#ektext {
+    font-size: 5rem;
+    font-family: 'Sigmar One', cursive;
+    margin-left: 10%;   
+    color: #FFFFFF;
+    font-weight: 10000px;
+    background: linear-gradient(to right, #FFAF7B, #D76D77, #3A1C71) no-repeat;    
+    background-position: center;
+    background-size: contain;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
 #ekishara {
-    margin: 10px;
+    z-index: -1;
     background: url('../img/bg/bgishara.PNG');
     background-repeat: no-repeat;
-    background-position: center;
-    background-color: #FFFFFF;
 }
 @media only screen and (min-width: 820px) {
     #ekishara {
+        background-position: center;
         width: 100%;
-        height: 70vh;
-        background-size: 55%;
+        height: 72vh;
+        background-size: 65%;
     }
 }
 @media only screen and (max-width: 819px) {
     #ekishara {
+        background-position: center;
         width: 100%;
         height: 65vh;
         background-size: 90%;
     }
 }
-#aboutpic { border-radius: 5px; }
-@media only screen and (min-width: 820px) {
-    #aboutpic, #missionpic {
-        width: 99%;
+@media only screen and (max-width: 519px) {
+    #ekishara {
+        background-position: top center;
+        height: 50vh;
     }
+} */
+#ekishara {
+    z-index: 99;
+    width: 100%;
+    height: 100vh;
+    background: #ffffff;
+    position: relative;
+    }
+#upbg {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    background: url('../img/bg/upbg.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: bottom right;
 }
-@media only screen and (max-width: 819px) {
-    #aboutpic, #missionpic {
-        width: 85vw;
-    }
+#uptxt { position: absolute; }
+#together {
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke: 3px #0072ff;
+}
+#fifteen { font-weight: bold; }
+#scrolldown {
+    background: #00c6ff;
+    background: -webkit-linear-gradient(to right, #0072ff, #00c6ff);
+    background: linear-gradient(to right, #0072ff, #00c6ff);
+    color: #ffffff;
+    padding: 8px;
+    width: 160px;
+    font-size: 20px;
+    border-radius: 50px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+    filter: opacity(0.9)
+}
+@media only screen and (min-width: 980px) {
+    #upbg { width: 80%; height: 80%; }
+    #uptxt { top: 20%; left: 5%; }
+    #together { font-size: 80px; }
+    #fifteen { font-size: 50px; }
+}
+@media only screen and (max-width: 979px) {
+    #upbg { width: 70%; height: 70%; }
+    #uptxt { top: 20%; left: 5%; }
+    #together { font-size: 60px; }
+    #fifteen { font-size: 40px; }
+}
+@media only screen and (max-width: 767px) {
+    #upbg { width: 70%; height: 70%; }
+    #uptxt { top: 9%; left: 10%; }
+    #together { font-size: 80px; }
+    #fifteen { font-size: 50px; }
+}
+@media only screen and (max-width: 531px) {
+    #upbg { width: 90%; height: 90%; }
+    #uptxt { top: 5%; left: 5%; }
+    #together { font-size: 13vw; }
+    #fifteen { font-size: 8vw; }
+}
+.aone {
+    max-width: 200px;
+    width: 95%;
+    height: 125px;
+    margin: 7px;
+    border-radius: 10px;
 }
 i { vertical-align: middle; }
-#about, #mission, #works, #event, #contact { color: #FFFFFF; padding: 20px; border-radius: 7px; box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2); }
-#about {
-    background: url('../img/bg/about.jpeg');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+#collapseAbout, #collapseMission { background: #FFFFFF; border: 1px solid #a6a6a6; border-radius: 5px; margin: 10px; padding: 15px; color: gray;}
+.underline { height: 7px; border-radius: 20px; background: linear-gradient(to right, #a770ef, #cf8bf3, #fdb99b); max-width: 120px; width: 100%; }
+.cardTitle {
+    font-size: 40px;
+    font-weight: bold;
 }
-#mission {
-    background-image: url('../img/bg/mission.jpg');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-#works {
-    background: url('../img/bg/works.jpg');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-}    
-#event {
-    background: url('../img/bg/event.jpg');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-#contact { color: #000000; background-color: #415b7b; }
-
-.cardTitle { font-family: 'Lato', sans-serif; color: #FFFFFF; font-size: 38px; font-weight: bold; }
-.hlogo { width: 50px; filter:invert(100%); }
 #works .card { padding: 10px; margin: 10px; }
 #d1btn, #d2btn {
     margin: 5px;
