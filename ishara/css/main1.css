@@ -1,0 +1,101 @@
+/* #ektop {
+    margin: 5px;
+    background: url('../img/bg/artboard.svg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: -1;
+    width: 98vw;
+    background-color: #FFFFFF;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    border-radius: 10px;
+}
+@media only screen and (min-width: 700px) { #ektop { height: 40vw } }
+@media only screen and (max-width: 699px) { #ektop { height: 50vw; } }
+@media only screen and (max-width: 549px) { #ektop { height: 60vw; } }
+@media only screen and (max-width: 449px) { #ektop { height: 70vw; } }
+#ektext {
+    font-size: 5rem;
+    font-family: 'Sigmar One', cursive;
+    margin-left: 10%;   
+    color: #FFFFFF;
+    font-weight: 10000px;
+    background: linear-gradient(to right, #FFAF7B, #D76D77, #3A1C71) no-repeat;    
+    background-position: center;
+    background-size: contain;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+*/
+#ekishara {
+    z-index: -1;
+    background: url('../img/bg/bgishara.PNG');
+    background-repeat: no-repeat;
+}
+@media only screen and (min-width: 820px) {
+    #ekishara {
+        background-position: center;
+        width: 100%;
+        height: 72vh;
+        background-size: 65%;
+    }
+}
+@media only screen and (max-width: 819px) {
+    #ekishara {
+        background-position: center;
+        width: 100%;
+        height: 65vh;
+        background-size: 90%;
+    }
+}
+@media only screen and (max-width: 519px) {
+    #ekishara {
+        background-position: top center;
+        height: 50vh;
+    }
+}
+.aone {
+    margin: 5px;
+}
+.aone:hover {
+    transform: scale(0.9);
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+}
+.opticon {
+    background: #FFFFFF;
+    padding-top: 35px;
+    margin: 5px;
+    border-radius: 100px;
+    height: 110px;
+    width: 110px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+i { vertical-align: middle; }
+#collapseAbout, #collapseMission { background: #FFFFFF; border: 1px solid #a6a6a6; border-radius: 5px; margin: 10px; padding: 15px; color: gray;}
+#work {
+    background: url('../img/bg/works.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.hlogo { width: 50px; filter:invert(25%); }
+.cardTitle { font-family: 'Lato', sans-serif; font-size: 48px; font-weight: bold; }
+#works .card { padding: 10px; margin: 10px; }
+#d1btn, #d2btn {
+    margin: 5px;
+    padding: 5px;
+    border-radius: 10px;
+    height: 100px;
+}
+@media only screen and (min-width: 499px) {
+    #d1btn, #d2btn {
+        width: 40%;
+    }
+}
+@media only screen and (max-width: 498px) {
+    #d1btn, #d2btn {
+        width: 75vw;
+    }
+}

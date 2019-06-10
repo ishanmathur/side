@@ -1,0 +1,21 @@
+form { max-width: 450px; }
+#output {
+    border: 2px solid #3399ff;
+    border-radius: 50%;
+}
+label {
+    color: #3399ff;
+    cursor: pointer;
+}
+input[type="file"] { display: none; }
+i {vertical-align: middle; }
+textarea {
+    width: 320px;
+    height: 100px;
+}
+#updatebtn {
+    width: 100%;
+    padding: 12px;
+    bottom: 0;
+    position: fixed;
+}

@@ -1,0 +1,72 @@
+i { vertical-align: middle; }
+@media only screen and (min-width: 767px) {
+    #info {
+        min-width: 63%;
+        margin: 10px;
+        padding: 20px;
+    } 
+}
+@media only screen and (max-width: 766px) {
+    #info { min-width: 99%; } 
+}
+#info #profilepic {
+    border: 2px solid;
+    border-radius: 50%;
+    width: 85px;
+    height: 85px;
+}
+#info h3 {
+    margin: 5px;
+    padding: 5px;
+    color: #3399ff;
+}
+#info h5 {
+    max-width: 350px;
+    margin: 5px;
+    padding: 7px;
+    color: gray;
+    border-left: 1px solid #a6a6a6;
+    border-radius: 10px;
+}
+#info .details {
+    margin: 5px;
+    padding: 5px;
+    font-size: 18px;
+    font-weight: bold;
+}
+#settings {
+    background: #FFFFFF;
+    margin: 10px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+#settings a {
+    border-radius: 10px;
+    margin: 5px;
+}
+@media only screen and (max-width: 766px) {
+    #contribute {
+        z-index: 10;
+        border-radius: 25px;
+        margin: 10px;
+        padding: 10px;
+        right: 20px;
+        bottom: 20px;
+        position: fixed;
+        box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.4);
+    }
+}
+@media only screen and (min-width: 767px) {
+    #contribute {
+        border-radius: 10px;
+        margin: 10px;
+        padding: 10px;
+        width: 250px;
+        box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.4);
+    }
+}
+@media only screen and (min-width: 768px) { #blogwid { max-width: 275px; } }
+#blogwid:hover {
+    transform: scale(0.9);
+}

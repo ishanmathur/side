@@ -1,0 +1,13 @@
+.navimg { height: 30px; width: auto; margin-left: 10px; }
+.navbar { z-index: 9999; background: #f2f2f2; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); }
+nav div ul li a { color: black; }
+#searchInput {
+    margin-bottom: 10px;
+    background: #e6e6e6;
+    border: none;
+    border-radius: 50px;
+    height: 50px;
+    padding: 10px;
+    text-align: center;
+    width: 100%;
+}
