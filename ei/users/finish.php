@@ -1,4 +1,5 @@
 <?php
+
 // Initialize the session
 session_start();
 
@@ -8,17 +9,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
     exit;
 }
 $u = $_SESSION["username"];
-?>
 
-<?php
-require_once('config.php');
-$sql = "SELECT * FROM users WHERE username='$u'";
-$result = $link->query($sql);
-$row = mysqli_fetch_array($result);
-?>
-
-<?php
-    
 // Include config file
 require_once "config.php";
 
@@ -72,31 +63,35 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     } else { $a = 0; }
 
-    $bio = $_POST["bio"];
-    $bday = $_POST["bday"];
     $fullname = $_POST["fullname"];
     $phone = $_POST["phone"];
     $city = $_POST["city"];
-    $college = $_POST["college"];
 
-
-    $sql = "UPDATE users SET bio='$bio', fullname='$fullname', phone='$phone', bday='$bday', city='$city', college='$college' WHERE username='" . $u . "'";
+    $sql = "UPDATE users SET fullname='$fullname', phone='$phone', city='$city' WHERE username='" . $u . "'";
     if ($link->query($sql) === TRUE) {
         $b = 0;
     } else {
         echo "Error: " . $sql . "<br>" . $link->error;
     }
     if ($a == 0 && $b == 0) {
-        header("location: my.php");
+        header("location: welcome.php");
     }
 
     $link->close();
 }
+
 ?>
 
 <?php require_once('../requires/header.php'); ?>
 <style>
-    @media only screen and (min-width: 650px) { #editprofile { margin-top: 30px; } }
+    .container {
+        background-color: #ffffff;
+        max-width: 800px;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
     #output {
         border-radius: 20px;
         max-width: 150px;
@@ -117,19 +112,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 
 <body>
-
-    <?php require_once('nav.php'); ?>
-
-    <div class="container" id="editprofile">
-        <br>
-        <h3><i class="material-icons-outlined">settings</i> <b>Edit Profile</b></h3>
-        <a style="color: red;" href="my.php"><i class="material-icons-outlined">keyboard_arrow_left</i> Cancel</a>
-        <div class="dropdown-divider"></div><br>
-        <form action="" method="post" enctype="multipart/form-data">
+    <div class="container" align="center">
+        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" enctype="multipart/form-data">
+            <h3><b>The Last Step</b></h3>
+            <p style="color: gray;">for better experience</p><br>
             <div class="row">
                 <div class="col" style="min-width: 220px;">
-                    <img id="output" src="<?php if($row["ploc"] != '') { echo $row["ploc"]; } else { echo "../img/profilepic/default.png"; } ?>"><br><br>
-                    <label for="profilepic" id="profilepiclabel">Update Picture</label>
+                    <img id="output" src="../img/profilepic/default.png"><br><br>
+                    <label for="profilepic" id="profilepiclabel">Profile Picture</label>
                     <input type="file" onchange="loadFile(event)" name="profilepic" id="profilepic" accept="image/png, image/jpeg, image/gif">
                     <br><br>
                     <script>
@@ -138,51 +128,41 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             output.src = URL.createObjectURL(event.target.files[0]);
                         };
                     </script>
-                    <div class="input-group">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text"><i class="material-icons-outlined">sentiment_satisfied</i> Bio</span>
-                        </div>
-                        <textarea name="bio" rows="5" maxlength="123" class="form-control" aria-label="With textarea"><?php echo $row["bio"]; ?></textarea>
-                    </div><br><br>
                 </div>
                 <div class="col" style="min-width: 220px;">
                     <div class="input-group">
                         <div class="input-group-prepend">
-                            <span class="input-group-text" id="basic-addon1"><i class="material-icons-outlined">person</i></span>
+                            <span class="input-group-text" id="basic-addon1"><i class="material-icons">person</i></span>
                         </div>
-                        <input required type="text" name="fullname" class="form-control" value="<?php echo $row["fullname"]; ?>" placeholder="Full Name" aria-label="Full Name" aria-describedby="basic-addon1">
+                        <input required type="text" name="fullname" class="form-control" placeholder="Full Name" aria-label="Full Name" aria-describedby="basic-addon1">
                         <span id="fullname_err"></span>
                     </div><br>
                     <div class="input-group">
                         <div class="input-group-prepend">
-                            <span class="input-group-text" id="basic-addon1"><i class="material-icons-outlined">cake</i></span>
+                            <span class="input-group-text" id="basic-addon1"><i class="material-icons">phone</i></span>
                         </div>
-                        <input type="date" name="bday" class="form-control" value="<?php echo $row["bday"]; ?>" type="date" min="1900-01-01" max="2025-12-31" value="<?php echo $row["bday"]; ?>">
-                        <span id="fullname_err"></span>
+                        <input type="text" name="phone" pattern="[1-9]{10}" class="form-control" placeholder="Phone Number (optional)" aria-label="Phone Number (optional)" aria-describedby="basic-addon1">
                     </div><br>
                     <div class="input-group">
                         <div class="input-group-prepend">
-                            <span class="input-group-text" id="basic-addon1"><i class="material-icons-outlined">phone</i></span>
+                            <span class="input-group-text" id="basic-addon1"><i class="material-icons">location_city</i></span>
                         </div>
-                        <input type="text" name="phone" pattern="[1-9]{10}" class="form-control" value="<?php echo $row["phone"]; ?>" placeholder="Phone Number (optional)" aria-label="Phone Number (optional)" aria-describedby="basic-addon1">
-                    </div><br>
-                    <div class="input-group">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" id="basic-addon1"><i class="material-icons-outlined">account_balance</i></span>
-                        </div>
-                        <input type="text" name="college" class="form-control" value="<?php echo $row["college"]; ?>" placeholder="Education" aria-label="Eucation" aria-describedby="basic-addon1">
-                        <span id="city_err"></span>
-                    </div><br>
-                    <div class="input-group">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" id="basic-addon1"><i class="material-icons-outlined">location_city</i></span>
-                        </div>
-                        <input required type="text" name="city" class="form-control" value="<?php echo $row["city"]; ?>" placeholder="City" aria-label="City" aria-describedby="basic-addon1">
+                        <input required type="text" name="city" class="form-control" placeholder="City" aria-label="City" aria-describedby="basic-addon1">
                         <span id="city_err"></span>
                     </div>
                 </div>
             </div>
-            <div align="center"><button id="updateBtn" type="submit" class="btn btn-primary"><i class="material-icons-outlined">done_all</i> <b>Update</b></button></div>
+            <br>
+            <button type="submit" class="btn btn-outline-primary"><b>Let's Start</b></button>
         </form>
-    </div><br><br><br><br>
+        <!--<br><br><br>
+        <div id="progressbar">
+            <div class="progress" id="firststep">
+                <div class="progress-bar bg-success" role="progressbar" style="width: 33%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">Profile Created</div>
+                <div class="progress-bar" role="progressbar" style="width: 33%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">Full Name</div>
+                <div class="progress-bar" role="progressbar" style="width: 33%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">Phone & City</div>
+            </div>
+        </div>-->
+    </div>
+
     <?php require_once('../requires/footer.php'); ?>

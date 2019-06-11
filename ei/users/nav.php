@@ -1,30 +1,39 @@
 <style>
-    #outernav {
-        height: 75px;
-        background: #FFFFFF;
-        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    nav { position: fixed; width: 100%; z-index: 9999; }
+    .nav-link { color: gray }
+    @media only screen and (min-width: 600px) {
+        ul { max-width: 600px; }
+        nav { top: 0; box-shadow: 0 2px 8px #a6a6a6; }
+        .navWritten { font-size: 15px; }
+        .activehai { border-bottom: 3px solid; }
     }
-    nav { max-width: 500px; }
-    .navimg {
-        width: 32px;
-        height: auto;
+    @media only screen and (max-width: 599px) {
+        nav { box-shadow: 0 -2px 8px #a6a6a6; }
+        .navWritten { display: block; font-size: 2vw; }
+        nav { bottom: 0; }
+        .material-icons-outlined { font-size: 6vw; }
+        .activehai { border-top: 3px solid; }
+    }
+    @media only screen and (max-width: 450px) {
+        .navWritten { display: block; font-size: 3vw; }
+        nav { bottom: 0; }
+        .material-icons-outlined { font-size: 8vw; }
+        .activehai { border-top: 3px solid; }
     }
 </style>
-<div align="center" class="sticky-top" id="outernav">
-    <nav class="navbar">
-        <a class="nav-link" href="/"><img class="navimg" src="../img/nav/home.png"> <p style="font-size: 12px; color: black;"> Home  </p> </a>
-        <a class="nav-link" href="/#works"><img class="navimg" src="../img/nav/works.png"> <p style="font-size: 12px; color: black;"> Works  </p> </a>
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="/#about"><img class="navimg" src="../img/nav/about.png"> &nbsp; About</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="/#mission"><img class="navimg" src="../img/nav/mission.png"> &nbsp; Mission</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="/#contact"><img class="navimg" src="../img/nav/team.png"> &nbsp; Team</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="https://docs.google.com/forms/d/e/1FAIpQLSeKOyfSXI8GwnT2qpptqLUJnhrEjzXfqTa7O5EQEIV1uezh-g/viewform" target="_BLANK"><img class="navimg" src="../img/nav/register.png"> <b style="color: red"> &nbsp; Register</b></a>
-        </div>
-        <a class="nav-link" href="/#event"><img class="navimg" src="../img/nav/event.png"> <p style="font-size: 12px; color: black;"> Event  </p> </a>
-        <a class="nav-link" href="/users/login.php"><img class="navimg" src="../img/nav/user.png"> <p style="font-size: 12px; color: black;"> Profile  </p> </a>
-    </nav>
-</div>
+<nav class="navbar-light bg-light">
+    <ul class="nav nav-fill">
+        <li class="nav-item">
+            <a class="nav-link" id="navHome" href="../"><i class="material-icons-outlined">home</i> <b class="navWritten">Home</b></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="navSearch" href="search.php"><i class="material-icons-outlined">search</i> <b class="navWritten">Search</b></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="navNotif" href="../notif"><i class="material-icons-outlined">notifications_active</i> <b class="navWritten">Notif's</b></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="navProfile" href="my.php"><i class="material-icons-outlined">account_circle</i> <b class="navWritten">Profile</b></a>
+        </li>
+    </ul>
+</nav>
