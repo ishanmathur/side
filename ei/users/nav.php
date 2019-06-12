@@ -15,7 +15,7 @@
         .activehai { border-top: 3px solid; }
     }
     @media only screen and (max-width: 450px) {
-        .navWritten { display: block; font-size: 3vw; }
+        .navWritten { display: none; font-size: 3vw; }
         nav { bottom: 0; }
         .material-icons-outlined { font-size: 8vw; }
         .activehai { border-top: 3px solid; }
