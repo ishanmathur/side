@@ -29,8 +29,8 @@ if ($row["fullname"] == '' || $row["city"] == '') {
     <?php require_once('nav.php'); ?>
     <script>
         $(document).ready(function() {
-            $("#navHome").css("color", "#007bff");
             $("#navHome").addClass("activehai");
+            $("#navHome .navImg").attr("src", "../img/nav/ahome.png");
         });
     </script>
 

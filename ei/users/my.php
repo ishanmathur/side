@@ -54,8 +54,8 @@ if ($row["fullname"] == '' || $row["city"] == '') {
     <?php require_once('nav.php'); ?>
     <script>
         $(document).ready(function() {
-            $("#navProfile").css("color", "#007bff");
             $("#navProfile").addClass("activehai");
+            $("#navProfile .navImg").attr("src", "../img/nav/aprofile.png");
         });
     </script>
 
