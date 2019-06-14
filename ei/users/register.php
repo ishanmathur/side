@@ -1,6 +1,6 @@
 <?php
 // Include config file
-require_once "config.php";
+require_once "../requires/header.php";
 
 // Define variables and initialize with empty values
 $username = $password = $confirm_password = "";
@@ -93,7 +93,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 ?>
 
-<?php require_once('../requires/header.php'); ?>
 <style>
     .container {
         background-color: #ffffff;

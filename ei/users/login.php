@@ -9,9 +9,6 @@ if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
     exit;
 }
 
-// Include config file
-require_once "config.php";
-
 // Define variables and initialize with empty values
 $username = $password = "";
 $username_err = $password_err = "";
@@ -89,7 +86,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 ?>
 
-<?php require_once('../requires/header.php'); ?>
 <style>
     .container {
         max-width: 400px;

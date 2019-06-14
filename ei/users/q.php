@@ -4,7 +4,6 @@ session_start();
 // Check if the user is logged in, if not then redirect him to login page
 if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) { $u = ''; }
 else { $u = $_SESSION["username"]; }
-require_once('config.php');
 if (!empty($_GET)) { $q = $_GET['q']; }
 require_once('../requires/header.php');
 ?>
@@ -22,7 +21,8 @@ require_once('../requires/header.php');
     <script>
         $(document).ready(function() {
             $("#navSearch").addClass("activehai");
-            $("#navSearch .navImg").attr("src", "../img/nav/asearch.png");
+            $("#navSearch i").removeClass("material-icons-outlined");
+            $("#navSearch i").addClass("material-icons");
         });
     </script>
 
@@ -69,8 +69,9 @@ require_once('../requires/header.php');
                             echo "
                             <form action='' method='get'>
                                 <input style='display: none;' value='" . $rowSuggestSearch["whosearch"] . "' name='q'>
-                                <button style='color: gray' class='btn' type='submit' name='qOut'>" . $rowSuggestSearch["whosearch"] . " <i class='material-icons-outlined'>call_made</i></button><br>
-                            </form>";
+                                <button style='color: gray' class='btn' type='submit' name='qOut'>" . $rowSuggestSearch["whosearch"] . " &nbsp; <i class='material-icons-outlined' style='font-size: 15px; font-weight: bold;'>call_made</i></button><br>
+                            </form>
+                            <div class='dropdown-divider'></div>";
                             if($i == 3) { break; }
                             $i++;
                         }

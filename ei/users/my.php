@@ -11,7 +11,7 @@ $u = $_SESSION["username"];
 ?>
 
 <?php
-require_once('config.php');
+require_once('../requires/header.php');
 $sql = "SELECT * FROM users WHERE username='$u'";
 $result = $link->query($sql);
 $row = mysqli_fetch_array($result);
@@ -21,9 +21,8 @@ if ($row["fullname"] == '' || $row["city"] == '') {
 }
 ?>
 
-<?php require_once('../requires/header.php'); ?>
 <style>
-    @media only screen and (min-width: 650px) { .row { margin-top: 25px; } }
+    @media only screen and (min-width: 600px) { .row { margin-top: 25px; } }
     @media only screen and (min-width: 768px) { #settings { max-width: 320px; border-radius: 10px; box-shadow: 0 2px 8px gray; }  }
     @media only screen and (max-width: 767px) { #settings { min-width: 80vw; width: 100%; margin-top: 25px; } }
     #info h3, #info p, #info h5 { margin-left: 20px; }
@@ -40,11 +39,11 @@ if ($row["fullname"] == '' || $row["city"] == '') {
         margin: 5px;
         padding: 5px;
         font-size: 18px;
-        font-weight: bold;
     }
     .settingsBtn {
         margin: 7px;
         padding: 7px;
+        border-radius: 50px;
     }
 </style>
 </head>
@@ -55,7 +54,8 @@ if ($row["fullname"] == '' || $row["city"] == '') {
     <script>
         $(document).ready(function() {
             $("#navProfile").addClass("activehai");
-            $("#navProfile .navImg").attr("src", "../img/nav/aprofile.png");
+            $("#navProfile i").removeClass("material-icons-outlined");
+            $("#navProfile i").addClass("material-icons");
         });
     </script>
 
@@ -74,20 +74,20 @@ if ($row["fullname"] == '' || $row["city"] == '') {
                     ?>
                 </h5><br><br>
                 
-                <div class="details"><img src="../img/profiledetails/city.png" width="35" height="auto"> &nbsp; <?php if($row["city"] != "") { echo $row["city"]; } else { echo '<a class="btn btn-outline-dark" href="editprofile.php">Add City <i class="material-icons-outlined">add</i></a>'; } ?> </div>
-                <div class="details"><img src="../img/profiledetails/phone.png" width="35" height="auto"> &nbsp; <?php if($row["phone"] != "") { echo $row["phone"]; } else { echo '<a class="btn btn-outline-dark" href="editprofile.php">Add Phone <i class="material-icons-outlined">add</i></a>'; } ?> </div>
-                <div class="details"><img src="../img/profiledetails/college.png" width="35" height="auto"> &nbsp; <?php if($row["college"] != "") { echo $row["college"]; } else { echo '<a class="btn btn-outline-dark" href="editprofile.php">Add Education <i class="material-icons-outlined">add</i></a>'; } ?> </div>
-                <div class="details"><img src="../img/profiledetails/bday.png" width="35" height="auto"> &nbsp; <?php if($row["bday"] != "") { echo $row["bday"]; } else { echo '<a class="btn btn-outline-dark" href="editprofile.php">Add B\'day <i class="material-icons-outlined">add</i></a>'; } ?> </div>
-                <div class="details"><img src="../img/profiledetails/joined.png" width="35" height="auto"> &nbsp; <?php if($row["created_at"] != "") { echo $row["created_at"]; } else { } ?> </div>
+                <div class="details"><img src="../img/profiledetails/city.png" width="35" height="auto"> &nbsp; <?php if($row["city"] != "") { echo "Lives in <b>" . $row["city"] . "</b>"; } else { echo '<a class="btn btn-outline-dark" href="editprofile.php">Add City <i class="material-icons-outlined">add</i></a>'; } ?> </div>
+                <div class="details"><img src="../img/profiledetails/phone.png" width="35" height="auto"> &nbsp; <?php if($row["phone"] != "") { echo "Contact <b>" . $row["phone"] . "</b>"; } else { echo '<a class="btn btn-outline-dark" href="editprofile.php">Add Phone <i class="material-icons-outlined">add</i></a>'; } ?> </div>
+                <div class="details"><img src="../img/profiledetails/college.png" width="35" height="auto"> &nbsp; <?php if($row["college"] != "") { echo "Studies at <b>" . $row["college"] . "</b>"; } else { echo '<a class="btn btn-outline-dark" href="editprofile.php">Add Education <i class="material-icons-outlined">add</i></a>'; } ?> </div>
+                <div class="details"><img src="../img/profiledetails/bday.png" width="35" height="auto"> &nbsp; <?php if($row["bday"] != "") { echo "Wish on <b>" . $row["bday"] . "</b>"; } else { echo '<a class="btn btn-outline-dark" href="editprofile.php">Add B\'day <i class="material-icons-outlined">add</i></a>'; } ?> </div>
+                <div class="details"><img src="../img/profiledetails/joined.png" width="35" height="auto"> &nbsp; <?php if($row["created_at"] != "") { $joined = substr($row["created_at"],0,10); echo "Joined on <b>" . $joined . "</b>"; } else { } ?> </div>
                 
             </div>
             <div id="settings" class="col">
                 <br><h3><i class="material-icons-outlined">settings</i> <b>Settings</b></h3>
                 <div class="dropdown-divider"></div><br>
-                <a class="settingsBtn btn alert-primary" href="editprofile.php"><i class="material-icons-outlined">edit</i> Edit Profile</a>
-                <a class="settingsBtn btn alert-warning" href="reset-password.php"><i class="material-icons-outlined">fiber_pin</i> Reset Password</a>
-                <a class="settingsBtn btn alert-danger" href="logout.php"><i class="material-icons-outlined">power_settings_new</i> Logout</a>
-                <a class="settingsBtn btn alert-success" href="../dev.php"><i class="material-icons-outlined">code</i> DevOps</a><br><br><br>
+                <a class="settingsBtn btn alert-primary" href="editprofile.php"><b><i class="material-icons-outlined">edit</i> Edit Profile</b></a>
+                <a class="settingsBtn btn alert-warning" href="reset-password.php"><b><i class="material-icons-outlined">fiber_pin</i> Reset Password</b></a>
+                <a class="settingsBtn btn alert-danger" href="logout.php"><b><i class="material-icons-outlined">power_settings_new</i> Logout</b></a>
+                <a class="settingsBtn btn alert-success" href="../dev.php"><b><i class="material-icons-outlined">code</i> DevOps</b></a><br><br><br>
             </div>
         </div><br><br><br>
     </div>

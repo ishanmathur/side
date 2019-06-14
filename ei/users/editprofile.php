@@ -11,16 +11,13 @@ $u = $_SESSION["username"];
 ?>
 
 <?php
-require_once('config.php');
+require_once('../requires/header.php');
 $sql = "SELECT * FROM users WHERE username='$u'";
 $result = $link->query($sql);
 $row = mysqli_fetch_array($result);
 ?>
 
 <?php
-    
-// Include config file
-require_once "config.php";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
@@ -94,7 +91,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 ?>
 
-<?php require_once('../requires/header.php'); ?>
 <style>
     @media only screen and (min-width: 650px) { #editprofile { margin-top: 30px; } }
     #output {
@@ -119,6 +115,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <body>
 
     <?php require_once('nav.php'); ?>
+    <script>
+        $(document).ready(function() {
+            $("#navProfile").addClass("activehai");
+            $("#navProfile i").removeClass("material-icons-outlined");
+            $("#navProfile i").addClass("material-icons");
+        });
+    </script>
 
     <div class="container" id="editprofile">
         <br>

@@ -11,7 +11,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
 $u = $_SESSION["username"];
 
 // Include config file
-require_once "config.php";
+require_once "../requires/header.php";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
@@ -82,7 +82,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 ?>
 
-<?php require_once('../requires/header.php'); ?>
 <style>
     .container {
         background-color: #ffffff;
