@@ -11,6 +11,6 @@
   </li>
   <li>
     <h2>More projects</h2>
-    <p>Coming very soon</p>
+    <p>Coming very soon including frontfoot</p>
   </li>
 </ul>
