@@ -1,7 +1,5 @@
 <style>
-    img {
-        border-radius: 15px;
-    }
+    img { border-radius: 15px; }
 </style>
 <div align="center">
     <h2 style="color: black;"><b>Poerty Slam</b></h2><br>
