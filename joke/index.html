@@ -4,21 +4,20 @@
         function checkFunction(){
                 var a = document.getElementById("word").value;
                 var ans = 0, res = 0
-                a = a.replace(/[^A-Za-z]/g, "");
+                a = a.replace(/[^A-Za-z1-9]/g, "");
                 a = a.toLowerCase();
-                var print = '';
-                var printyr = '';
+                var printing = '';
                 for(var i = 0; i < a.length; i++) {
-                    if (i < a.length - 1) { printyr += a[i] + " + "; }
-                    else { printyr += a[i] + " "; }
+                    if (i < a.length - 1) { printing += a[i] + " + "; }
+                    else { printing += a[i] + " "; }
                     ans = a.charCodeAt(i) - 96;
                     res += ans;
                 }
-                printyr += ": " + res;
+                printing += ": " + res;
                 if (res == 0){document.getElementById("ans").style.display = 'none';}
                 else {
                     document.getElementById("ans").style.display = 'block';
-                    document.getElementById("ans").innerHTML = printyr;
+                    document.getElementById("ans").innerHTML = printing;
                 }
             }
     </script>
