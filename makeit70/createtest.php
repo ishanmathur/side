@@ -6,10 +6,11 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 }
 require_once('header.php');
 $u = htmlspecialchars($_SESSION["username"]);
+$s = $_SESSION["semester"];
 $sql = "SELECT isAdmin FROM users WHERE username='$u'";
 $result = $conn->query($sql);
 $row = mysqli_fetch_array($result);
-if($row["isAdmin"] != 1) {
+if($s != "users-admin") {
     header("location: welcome.php");
     exit;
 }

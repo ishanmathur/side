@@ -18,8 +18,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     } else{
         $password = trim($_POST["password"]);
     }
+    $semester = $_POST["semester"];
     if(empty($username_err) && empty($password_err)){
-        $sql = "SELECT id, username, password FROM users WHERE username = ?";
+        $sql = "SELECT id, username, password FROM $semester WHERE username = ?";
         if($stmt = mysqli_prepare($conn, $sql)){
             mysqli_stmt_bind_param($stmt, "s", $param_username);
             $param_username = $username;
@@ -33,6 +34,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             $_SESSION["loggedin"] = true;
                             $_SESSION["id"] = $id;
                             $_SESSION["username"] = $username;
+                            $_SESSION["semester"] = $semester;
                             header("location: welcome.php");
                         } else{
                             $password_err = "The password you entered was not valid.";
@@ -59,14 +61,21 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         <p>Please fill in your credentials to login.</p>
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
             <div class="<?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
-                <label>Username</label>
+                <label>SID</label>
                 <input type="text" name="username" value="<?php echo $username; ?>">
-                <span><?php echo $username_err; ?></span>
+                <p style="color:red"><?php echo $username_err; ?></p>
+            </div><br/>
+            <div>
+                <select name="semester">
+                    <option value="users_third">III (Third)</option>
+                    <option value="users_fifth">V (fifth)</option>
+                    <option value="users_seventh">VII (seventh)</option>
+                </select>
             </div><br/>
             <div class="<?php echo (!empty($password_err)) ? 'has-error' : ''; ?>">
                 <label>Password</label>
                 <input type="password" name="password">
-                <span><?php echo $password_err; ?></span>
+                <p style="color:red"><?php echo $password_err; ?></p>
             </div><br/>
             <input type="submit" class="btn btn-primary" value="Login">
         </form>
