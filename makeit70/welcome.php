@@ -29,8 +29,8 @@ $row = mysqli_fetch_array($result);
     <?php
     if($s != "users_admin") {
         echo '<h3>Your details</h3>';
-        $details = ['created_at', 'ladd', 'padd', 'phone', 'pphone', 'emailid', 'tenth', 'twelveth', 'semester', 'enrollno'];
-        $description = ['Created_at', 'Local Address', 'Permanent Address', 'Your Phone', 'Parents Phone', 'email-id', '10th Marks', '12th Marks', 'Semester', 'Enroll no'];
+        $details = ['created_at', 'ladd', 'padd', 'phone', 'pphone', 'emailid', 'tenth', 'twelveth', 'enrollno'];
+        $description = ['Created_at', 'Local Address', 'Permanent Address', 'Your Phone', 'Parents Phone', 'email-id', '10th Marks', '12th Marks', 'Enroll no'];
         for($i = 0; $i < sizeof($details); $i++){
             echo '<h5>' . $description[$i] . ': ' . $row[$details[$i]] . '</h5>';
         }

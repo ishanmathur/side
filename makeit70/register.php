@@ -49,9 +49,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         $tenth = $_POST["tenth"];
         $twelveth = $_POST["twelveth"];
         $enrollno = $_POST["enrollno"];
-        $sql = "INSERT INTO $semester (username, password, fullname, ladd, padd, phone, pphone, emailid, tenth, twelveth, semester, enrollno) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        $sql = "INSERT INTO $semester (username, password, fullname, ladd, padd, phone, pphone, emailid, tenth, twelveth, enrollno) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         if($stmt = mysqli_prepare($conn, $sql)){
-            mysqli_stmt_bind_param($stmt, "ssssssssssss", $param_username, $param_password, $param_fullname, $param_ladd, $param_padd, $param_phone, $param_pphone, $param_emailid, $param_tenth, $param_twelveth, $param_semester, $param_enrollno);
+            mysqli_stmt_bind_param($stmt, "sssssssssss", $param_username, $param_password, $param_fullname, $param_ladd, $param_padd, $param_phone, $param_pphone, $param_emailid, $param_tenth, $param_twelveth, $param_enrollno);
             $param_username = $username;
             $param_password = password_hash($password, PASSWORD_DEFAULT);
             $param_fullname = $fullname;
@@ -62,7 +62,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             $param_emailid = $emailid;
             $param_tenth = $tenth;
             $param_twelveth = $twelveth;
-            $param_semester = $semester;
             $param_enrollno = $enrollno;
             if(mysqli_stmt_execute($stmt)){
                 header("location: index.php");

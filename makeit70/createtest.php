@@ -6,16 +6,13 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 }
 require_once('header.php');
 $u = htmlspecialchars($_SESSION["username"]);
-$s = $_SESSION["semester"];
-$sql = "SELECT isAdmin FROM users WHERE username='$u'";
-$result = $conn->query($sql);
-$row = mysqli_fetch_array($result);
 if($s != "users-admin") {
     header("location: welcome.php");
     exit;
 }
 if($_SERVER["REQUEST_METHOD"] == "POST"){
     $testName = $_POST["testname"];
+    $semester = $_POST["semester"];
     $testDate = $_POST["testdate"];
     $testDate = str_replace("-","_",$testDate);
     $finalName = $testName."_".$testDate;
@@ -29,7 +26,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         correctans VARCHAR(10)
         )";
     if ($conn->query($sqlCreateTest) === TRUE) {
-        $sqlAddTestUserCol = "ALTER TABLE users ADD COLUMN $finalName VARCHAR(200)";
+        $sqlAddTestUserCol = "ALTER TABLE $semester ADD COLUMN $finalName VARCHAR(200)";
         if ($conn->query($sqlAddTestUserCol) === TRUE) {
            $_SESSION["testname"] = $finalName;
            header("location: createtest1.php");
@@ -49,6 +46,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             <input required name="testname" id="testname" maxlength="45"><br/><br/>
             <label for="testdate"><b>When should test go live</b></label>
             <input required type="date" id="testdate" name="testdate"><br/><br/>
+            <select name="semester">
+                <option value="users_third">III (Third)</option>
+                <option value="users_fifth">V (fifth)</option>
+                <option value="users_seventh">VII (seventh)</option>
+            </select><br/><br/>
             <input type="submit" value="Go">
         </form>
     </div>
