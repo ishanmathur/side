@@ -1,7 +1,8 @@
 <?php
-session_start();
-$_SESSION = array();
-session_destroy();
-header("location: /");
+setcookie("loggedin", "", time() - 3600);
+setcookie("id", "", time() - 3600);
+setcookie("username", "", time() - 3600);
+setcookie("semester", "", time() - 3600);
+header("location: index.php");
 exit;
 ?>

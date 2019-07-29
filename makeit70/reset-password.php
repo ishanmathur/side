@@ -1,7 +1,6 @@
 <?php
-session_start();
-if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
-    header("location: login.php");
+if(!isset($_COOKIE["loggedin"])){
+    header("location: index.php");
     exit;
 }
 require_once('config.php');
@@ -24,14 +23,17 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         }
     }
     if(empty($new_password_err) && empty($confirm_password_err)){
-        $sql = "UPDATE users SET password = ? WHERE id = ?";
+        $sql = "UPDATE ".$_COOKIE["semester"]." SET password = ? WHERE id = ?";
         if($stmt = mysqli_prepare($conn, $sql)){
             mysqli_stmt_bind_param($stmt, "si", $param_password, $param_id);
             $param_password = password_hash($new_password, PASSWORD_DEFAULT);
-            $param_id = $_SESSION["id"];
+            $param_id = $_COOKIE["id"];
             if(mysqli_stmt_execute($stmt)){
-                session_destroy();
-                header("location: login.php");
+                setcookie("loggedin", "", time() - 3600);
+                setcookie("id", "", time() - 3600);
+                setcookie("username", "", time() - 3600);
+                setcookie("semester", "", time() - 3600);
+                header("location: index.php");
                 exit();
             } else{
                 echo "Oops! Something went wrong. Please try again later.";

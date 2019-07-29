@@ -1,6 +1,5 @@
 <?php
-session_start();
-if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
+if(isset($_COOKIE["loggedin"])){
     header("location: welcome.php");
     exit;
 }
@@ -30,11 +29,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                     mysqli_stmt_bind_result($stmt, $id, $username, $hashed_password);
                     if(mysqli_stmt_fetch($stmt)){
                         if(password_verify($password, $hashed_password)){
-                            session_start();
-                            $_SESSION["loggedin"] = true;
-                            $_SESSION["id"] = $id;
-                            $_SESSION["username"] = $username;
-                            $_SESSION["semester"] = $semester;
+                            setcookie("loggedin", true, time() + (86400 * 365));
+                            setcookie("id", $id, time() + (86400 * 365));
+                            setcookie("username", $username, time() + (86400 * 365));
+                            setcookie("semester", $semester, time() + (86400 * 365));
                             header("location: welcome.php");
                         } else{
                             $password_err = "The password you entered was not valid.";
