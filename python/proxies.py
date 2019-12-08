@@ -13,3 +13,4 @@ class ProxiesClass():
             prxy_lst.append(str(td[0].text)+':'+str(td[1].text))
         print(10*' * ', "Getting new proxies")
         return prxy_lst
+    
