@@ -6,12 +6,16 @@
 </head>
 
 <body>
-    <form onsubmit="return loadDoc();">
+    <form onsubmit="return asd();">
         <input type="text" maxlength="100" name="url" id="url_input">
         <button type="submit">Try!</button>
     </form>
     <div id="returned_url_box"></div>
     <script>
+        function asd(){
+            loadDoc();
+            return false;
+        }
         function loadDoc() {
             urln = document.getElementById("url_input").value;
             urlna = encodeURIComponent(urln);
