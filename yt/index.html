@@ -13,7 +13,8 @@
     <div id="returned_url_box"></div>
     <script>
         function loadDoc() {
-            urlna = document.getElementById("url_input").value;
+            urln = document.getElementById("url_input").value;
+            urlna = encodeURIComponent(urln);
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function () {
                 if (this.readyState == 4 && this.status == 200) {
@@ -21,7 +22,7 @@
                         this.responseText;
                 }
             };
-            xhttp.open("GET", "http://i5m.pythonanywhere.com/ytdl/ytdl/" + urlna, true);
+            xhttp.open("GET", "http://i5m.pythonanywhere.com/ytdl/" + urlna, true);
             xhttp.setRequestHeader("Content-type", "application/json");
             xhttp.send();
         }
