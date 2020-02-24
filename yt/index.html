@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Youtebe Songs Downloader</title>
+</head>
+
+<body>
+    <form onsubmit="return loadDoc();">
+        <input type="text" maxlength="100" name="url" id="url_input">
+        <button type="submit">Try!</button>
+    </form>
+    <div id="returned_url_box"></div>
+    <script>
+        function loadDoc() {
+            urlna = document.getElementById("url_input").value;
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    document.getElementById("returned_url_box").innerHTML =
+                        this.responseText;
+                }
+            };
+            xhttp.open("GET", "http://i5m.pythonanywhere.com/ytdl/ytdl/" + urlna, true);
+            xhttp.setRequestHeader("Content-type", "application/json");
+            xhttp.send();
+        }
+    </script>
+</body>
+
+</html>
